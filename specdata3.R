@@ -2,6 +2,7 @@ specdir<-"C:/Users/Kevin/Documents/R/Projects/specdata2/specdata"
 
 pollutantmean<-function(directory,pollutant,id = 1:332){
   setwd(directory)
+  initialdir<-"C:/Users/Kevin/Documents/R/Projects/specdata3"
   sulfatesum<-0
   sulfateobs<-0
   nitratesum<-0
@@ -47,7 +48,7 @@ pollutantmean<-function(directory,pollutant,id = 1:332){
     }
     print(nitratesum/nitrateobs)
   }
-
+setwd(initialdir)
 }
 
 pollutantmean(specdir,"nitrate",23)
