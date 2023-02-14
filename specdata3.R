@@ -2,7 +2,8 @@ specdir<-"C:/Users/Kevin/Documents/R/Projects/specdata2/specdata"
 
 pollutantmean<-function(directory,pollutant,id = 1:332){
   setwd(directory)
-  initialdir<-"C:/Users/Kevin/Documents/R/Projects/specdata3"
+  on.exit(setwd("C:/Users/Kevin/Documents/R/Projects/specdata3"))
+
   sulfatesum<-0
   sulfateobs<-0
   nitratesum<-0
@@ -46,12 +47,12 @@ pollutantmean<-function(directory,pollutant,id = 1:332){
         nitrateobs<-nitrateobs+sum(!is.na(read.csv(file1)[,"nitrate"]))
       }
     }
-    print(nitratesum/nitrateobs)
+    return(nitratesum/nitrateobs)
   }
-setwd(initialdir)
+
 }
 
-pollutantmean(specdir,"nitrate",23)
+pollutantmean(specdir,"nitrate",70:72)
 
 #This function was created for part 1 of week 2 assignment. I was having problems in Rstudio and github as I went about 
 #creating the repo & project improperly which ultimately led to a lot of Rstudio crashes, inability to open files and perform
